@@ -1,7 +1,7 @@
 LOG_FILE=/tmp/catalogue
 
 ID=$(id -u)
-if [$ID -ne 0 ]; then
+if [ $ID -ne 0 ]; then
   echo you should run this script as root user or with sudo previlages.
   exit 1
 fi
@@ -44,7 +44,7 @@ else
   exit 1
 fi
 
-$ cd /home/roboshop
+cd /home/roboshop
 
 echo "clean old app content"
 rm -rf catalogue &>>${LOG_FILE}
