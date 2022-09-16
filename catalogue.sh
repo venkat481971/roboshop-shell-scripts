@@ -55,7 +55,7 @@ else
   exit 1
 fi
 
-echo 'extraction catalogue app code'
+echo "Extract Catalogue Application Code"
 unzip /tmp/catalogue.zip &>>${LOG_FILE}
 if [ $? -eq 0 ]; then
   echo status = SUCCES
@@ -70,7 +70,7 @@ cd /home/roboshop/catalogue
 echo "Install NodeJS Dependencies"
 npm install &>>${LOG_FILE}
 if [ $? -eq 0 ]; then
-  echo status = SUCCES
+  echo status = SUCCESS
 else
   echo status = FAILURE
   exit 1
