@@ -67,7 +67,7 @@ fi
 mv catalogue-main catalogue
 cd /home/roboshop/catalogue
 
-echo 'install nodejs  dependencies'
+echo "Install NodeJS Dependencies"
 npm install &>>${LOG_FILE}
 if [ $? -eq 0 ]; then
   echo status = SUCCES
