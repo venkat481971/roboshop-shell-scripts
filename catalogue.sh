@@ -6,6 +6,7 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
 
 echo 'install nodejs'
@@ -14,6 +15,7 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
 
 echo 'Add Roboshop Application user'
@@ -22,6 +24,7 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
 
 echo 'download catalogue application code'
@@ -30,6 +33,7 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
 
 $ cd /home/roboshop
@@ -40,6 +44,7 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
 
 mv catalogue-main catalogue
@@ -51,6 +56,7 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
 
 echo 'setup catalogue service'
@@ -59,6 +65,7 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
 
 
@@ -71,4 +78,5 @@ if [ $? -eq 0 ]; then
   echo status = SUCCES
 else
   echo status = FAILURE
+  exit
 fi
