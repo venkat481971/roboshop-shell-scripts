@@ -9,7 +9,7 @@ fi
 echo 'setup nodejs repos'
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG_FILE}
 if [ $? -eq 0 ]; then
-  echo -e status = "\e[32mSUCCESS\e[0M"
+  echo -e status = "\e[32mSUCCESS\e[0m"
 else
   echo -e status = "\e[31mFAILURE\e[0m"
   exit 1
