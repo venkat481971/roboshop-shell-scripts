@@ -1,6 +1,5 @@
-LOG_FILE=/tmp/catalogue
+COMPONENT=catalogue
+LOG_FILE=/tmp/${COMPONENT}
 
 source common.sh
-COMPONENT=catalogue
-
 NODEJS
