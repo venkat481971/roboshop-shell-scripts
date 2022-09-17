@@ -40,7 +40,7 @@ npm install &>>${LOG_FILE}
 StatusCheck $?
 
 echo "update systemD service files"
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO ENDPOINT/mongodb.roboshop.internal/'/home/roboshop/user/systemd.service
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/user/systemd.service
 StatusCheck $?
 
 echo 'setup user service'
@@ -49,8 +49,8 @@ StatusCheck $?
 
 
 systemctl daemon-reload &>>${LOG_FILE}
-systemctl start user &>>${LOG_FILE}
+systemctl enable user &>>${LOG_FILE}
 
 echo 'start user service'
-systemctl enable user &>>${LOG_FILE}
+systemctl start user &>>${LOG_FILE}
 StatusCheck $?
