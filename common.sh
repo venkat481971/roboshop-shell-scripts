@@ -51,19 +51,19 @@ NODEJS() {
   StatusCheck $?
 
   echo "update systemD service files"
-  sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${COMPONENT/systemd.service
+  sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service
   StatusCheck $?
 
-  echo 'setup ${COMPONENT service'
-  mv /home/roboshop/${COMPONENT/systemd.service /etc/systemd/system/${COMPONENT.service &>>${LOG_FILE}
+  echo 'setup $${COMPONENT} service'
+  mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>>${LOG_FILE}
   StatusCheck $?
 
 
   systemctl daemon-reload &>>${LOG_FILE}
-  systemctl enable ${COMPONENT &>>${LOG_FILE}
+  systemctl enable ${COMPONENT} &>>${LOG_FILE}
 
-  echo 'start ${COMPONENT service'
-  systemctl start ${COMPONENT &>>${LOG_FILE}
+  echo 'start ${COMPONENT} service'
+  systemctl start ${COMPONENT} &>>${LOG_FILE}
   StatusCheck $?
 
 }
