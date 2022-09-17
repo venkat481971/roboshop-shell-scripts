@@ -1,5 +1,6 @@
-COMPONENT=cart
-LOG_FILE=/tmp/${COMPONENT}
+LOG_FILE=/tmp/cart
 
 source common.sh
+COMPONENT=cart
+
 NODEJS
