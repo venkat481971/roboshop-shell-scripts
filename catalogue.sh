@@ -29,7 +29,7 @@ rm -rf catalogue &>>${LOG_FILE}
 StatusCheck $?
 
 echo "Extract Catalogue Application Code"
-unzip /tmp/catalogue.zip &>>${LOG_FILE}
+unzip -o /tmp/catalogue.zip &>>${LOG_FILE}
 StatusCheck $?
 
 mv catalogue-main catalogue
