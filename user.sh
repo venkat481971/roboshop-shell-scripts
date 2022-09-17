@@ -6,7 +6,6 @@ echo 'setup nodejs repos'
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG_FILE}
 StatusCheck $?
 
-
 echo 'install nodejs'
 yum install nodejs -y &>>${LOG_FILE}
 StatusCheck $?
@@ -19,7 +18,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo 'download user application code'
-curl -s -L -o /tmp/user.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>${LOG_FILE}
+curl -s -L -o /tmp/user.zip "https://github.com/roboshop-devops-project/user/archive/main.zip" &>>${LOG_FILE}
 StatusCheck $?
 
 cd /home/roboshop
