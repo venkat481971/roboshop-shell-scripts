@@ -5,8 +5,8 @@ echo "setting up mysql repo"
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/roboshop-devops-project/mysql/main/mysql.repo &>>$LOG_FILE
 StatusCheck $?
 
-echo "Disable mySQL default module to Enable 5.7my sql"
-dnf module disable mysql &>>$LOG_FILE
+echo "Disable mySQL default module to Enable 5.7 my sql"
+dnf module disable mysql -y &>>$LOG_FILE
 StatusCheck $?
 
 echo "install mysql"
