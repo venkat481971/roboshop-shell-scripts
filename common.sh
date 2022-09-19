@@ -19,9 +19,9 @@ APP_PREREQ() {
      echo 'Add Roboshop Application user'
      useradd roboshop &>>${LOG_FILE}
      StatusCheck $?
-    fi
+  fi
 
-    echo 'download ${COMPONENT} application code'
+    echo 'download ${COMPONENT} Application code'
     curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>${LOG_FILE}
     StatusCheck $?
 
@@ -73,6 +73,7 @@ NODEJS() {
   StatusCheck $?
 
   SYSTEMD_SETUP
+
 }
 
 JAVA() {
