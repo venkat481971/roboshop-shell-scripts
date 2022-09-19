@@ -37,6 +37,21 @@ echo "uninstall plugin validate_password;" | mysql -uroot -p${ROBOSHOP_MYSQL_PAS
 StatusCheck $?
 fi
 
+echo "Download schema"
+curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip" &>>$LOG_FILE
+StatusCheck $?
+
+echo "Extract schema"
+cd /tmp
+unzip -o mysql.zip &>>$LOG_FILE
+StatusCheck $?
+
+echo "load schema"
+cd mysql-main
+mysql -u root -p${ROBOSHOP_MYSQL_PASSWORD} <shipping.sql &>>$LOG_FILE
+StatusCheck $?
+fi
+
 
 
 
