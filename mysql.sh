@@ -28,6 +28,7 @@ if [ $? -ne 0 ]; then
 echo "change the default root password"
 mysql --connect-expired-password -uroot -p"${DEFAULT_PASSWORD}" </tmp/root-pass.sql &>>$LOG_FILE
 StatusCheck $?
+fi
 
 
 
