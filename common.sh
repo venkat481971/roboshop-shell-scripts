@@ -41,7 +41,7 @@ APP_PREREQ() {
 
 SYSTEMD_SETUP() {
     echo "update systemD service files"
-    sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e  's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/DBHOST/'mysql.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service
+    sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e  's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service
     StatusCheck $?
 
     echo "setup ${COMPONENT} service"
@@ -68,30 +68,6 @@ NODEJS() {
 
   APP_PREREQ
 
-  id roboshop &>>${LOG_FILE}
-  if [ $? -ne 0 ]; then
-   echo 'Add Roboshop Application user'
-   useradd roboshop &>>${LOG_FILE}
-   StatusCheck $?
-  fi
-
-  echo 'download ${COMPONENT} application code'
-  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>${LOG_FILE}
-  StatusCheck $?
-
-  cd /home/roboshop
-
-  echo "clean old app content"
-  rm -rf ${COMPONENT} &>>${LOG_FILE}
-  StatusCheck $?
-
-  echo "Extract ${COMPONENT} Application Code"
-  unzip /tmp/${COMPONENT}.zip &>>${LOG_FILE}
-  StatusCheck $?
-
-  mv ${COMPONENT}-main ${COMPONENT}
-  cd /home/roboshop/${COMPONENT}
-
   echo "Install NodeJS Dependencies"
   npm install &>>${LOG_FILE}
   StatusCheck $?
@@ -112,4 +88,4 @@ JAVA() {
   StatusCheck $?
 
   SYSTEMD_SETUP
-  }
+}
