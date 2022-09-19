@@ -30,4 +30,7 @@ mysql --connect-expired-password -uroot -p"${DEFAULT_PASSWORD}" </tmp/root-pass.
 StatusCheck $?
 
 
-
+# cd /tmp
+# unzip mysql.zip
+# cd mysql-main
+# mysql -u root -pRoboShop@1 <shipping.sql
