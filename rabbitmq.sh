@@ -12,7 +12,7 @@ StatusCheck $?
 
 echo "start rabbitmq server"
 systemctl enable rabbitmq-server &>>$LOG_FILE
-systemctl start rabbitmq-server &>>$LOG_FILE
+systemctl restart rabbitmq-server &>>$LOG_FILE
 StatusCheck $?
 
 echo "Add Application user in Rabbitmq"
