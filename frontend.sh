@@ -8,6 +8,7 @@
 
  echo Downloading Nginx web conent
  curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>>$LOG_FILE
+ StatusCheck $?
 
  cd /usr/share/nginx/html
 
