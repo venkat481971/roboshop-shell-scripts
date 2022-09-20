@@ -1,5 +1,6 @@
-LOG_FILE=/tmp/rabbitmq
+COMPONENT=rabbitmq
 source common.sh
+LOG_FILE=/tmp/${COMPONENT}
 
 echo "setup rabbitmq repos"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>$LOG_FILE
@@ -11,7 +12,7 @@ StatusCheck $?
 
 echo "start RabbitMQ server"
 systemctl enable rabbitmq-server &>>$LOG_FILE
-systemctl restart rabbitmq-server &>>$LOG_FILE
+systemctl start rabbitmq-server &>>$LOG_FILE
 StatusCheck $?
 
 echo "Add Application user in Rabbitmq"
