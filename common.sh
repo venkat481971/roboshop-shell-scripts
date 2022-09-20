@@ -111,6 +111,7 @@ PYTHON() {
   sed -i -e "/uid/ c uid = ${APP_GID}" -e "/gid/ c gid = ${APP_GID}" /home/roboshop/${COMPONENT}/${COMPONENT}.ini &>>${LOG_FILE}
   StatusCheck $?
 
+  SYSTEMD_SETUP
 
 
 }
