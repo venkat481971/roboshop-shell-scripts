@@ -100,7 +100,7 @@ PYTHON() {
 
   cd /home/roboshop/${COMPONENT}
 
-  echo "install python dependencies for App"
+  echo "install python dependencies for App''"
   pip3 install -r requirements.txt &>>${LOG_FILE}
   StatusCheck $?
 
